@@ -1,9 +1,9 @@
 export default async function About() {
     return (
       <main>
-        <section className="flex flex-col min-h-screen items-center justify-center p-24">
+        <section className="flex flex-col min-h-screen items-center justify-center p-24 text-justify">
           <article className="max-w-4xl py-4">
-            <h1 className="text-2xl text-center py-2">About me, Dave.</h1>
+            <h1 className="text-4xl text-center py-2">About me, Dave.</h1>
             <p>
                 Hi there! I'm Dave, a passionate web developer and programming guru based in Minooka, Illinois. 
                 I work as a Student Information Specialist for Minooka CCSD 201, where I blend my love for 

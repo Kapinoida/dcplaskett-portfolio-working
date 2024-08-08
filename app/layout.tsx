@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Platypi } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/navigation/nav";
 import Footer from "@/components/footer/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const special = Platypi({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: "dcplaskett",
-  description: "David Plaskett's portfolio",
+  title: "dp.",
+  description: "david plaskett's portfolio",
 };
 
 export default function RootLayout({
@@ -18,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={special.className}>
         <Nav />
         {children}
         <Footer />

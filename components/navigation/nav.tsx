@@ -1,5 +1,5 @@
 
-
+import Link from "next/link";
 
 export default function Nav() {
 
@@ -8,16 +8,16 @@ export default function Nav() {
             <nav className="flex justify-center">
                 <ul className="flex justify-between gap-16">
                     <li>
-                        <a href="/">dcplaskett</a>
+                        <Link href="/">dp.</Link>
                     </li>
                     <li>
-                        <a href="/portfolio">Portfolio</a>
+                        <Link href="/portfolio">portfolio.</Link>
                     </li>
                     <li>
-                        <a href="/blog">Blog</a>
+                        <Link href="/blog">blog.</Link>
                     </li>
                     <li>
-                        <a href="/about">About</a>
+                        <Link href="/about">about.</Link>
                     </li>
                 </ul>
             </nav>
