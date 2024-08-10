@@ -5,9 +5,9 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta name="description" content="A personal blog and portfolio site built with Next.js, TypeScript, and Markdown." />
+          <meta name="description" content="A personal blog and portfolio site built by David Plaskett." />
           <meta property="og:title" content="My Blog and Portfolio" />
-          <meta property="og:description" content="A personal blog and portfolio site built with Next.js, TypeScript, and Markdown." />
+          <meta property="og:description" content="A personal blog and portfolio site built by David Plaskett." />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://your-site-url.com" />
           <meta property="og:image" content="https://your-site-url.com/og-image.png" />

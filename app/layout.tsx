@@ -3,6 +3,7 @@ import { Platypi } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/navigation/nav";
 import Footer from "@/components/footer/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const special = Platypi({
   weight: "400",
@@ -22,9 +23,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={special.className}>
+        <ThemeProvider 
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
         <Nav />
         {children}
         <Footer />
+        </ThemeProvider>
         </body>
     </html>
   );

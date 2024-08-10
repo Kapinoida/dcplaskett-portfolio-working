@@ -1,3 +1,4 @@
+import Contact from "@/components/contact/contact";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -11,19 +12,23 @@ export default async function Home() {
         <div className="flex gap-4 py-4">
           <Button variant="outline" asChild>
             <Link href="/resume.pdf">
-              résumé.
+              Résumé.
             </Link>
           </Button>
           <Button variant="outline" asChild>
             <Link href="/portfolio">
-              portfolio.
+              Portfolio.
             </Link>
           </Button>
         </div>
       </section>
 
-      <section className="flex min-h-screen flex-col items-center justify-centers p-24">
-        <h1 className="text-4xl py-2">things I built.</h1>
+      <section className="flex min-h-screen flex-col items-center justify-center p-24">
+        <h1 className="text-4xl py-2">Things I built.</h1>
+      </section>
+
+      <section className="flex min-h-screen flex-col items-center justify-center p-24">
+        <Contact />
       </section>
     </main>
   );

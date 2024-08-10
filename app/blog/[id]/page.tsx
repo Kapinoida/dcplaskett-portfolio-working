@@ -24,6 +24,7 @@ const BlogPost = async ({ params }: { params: { id: string } }) => {
         <meta property="og:description" content={postData.description} />
       </Head>
       <h1 className='text-4xl py-4'>{postData.title}</h1>
+      <h2>{postData.subtitle}</h2>
       <p>{postData.date}</p>
       <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
     </div>

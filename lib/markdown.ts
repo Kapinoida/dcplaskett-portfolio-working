@@ -22,6 +22,7 @@ export function getPostData(directory: string, fileName: string) {
     title: matterResult.data.title,
     description: matterResult.data.description,
     date: matterResult.data.date,
+    subtitle: matterResult.data.subtitle,
     ...matterResult.data,
     contentHtml,
   };
@@ -36,6 +37,7 @@ export function getAllPostsData(directory: string) {
     date?: string; 
     title: string;
     description: string;
+    subtitle?: string;
   };
 
   const allPostsData: PostData[] = fileNames.map((fileName) => {
@@ -48,6 +50,8 @@ export function getAllPostsData(directory: string) {
         id,
         title: matterResult.data.title,
         description: matterResult.data.description,
+        date: matterResult.data.date,
+        subtitle: matterResult.data.subtitle,
         ...matterResult.data,
     };
   });

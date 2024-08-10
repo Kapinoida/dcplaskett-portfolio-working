@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import { ModeToggle } from "../ui/mode-toggle";
 
 export default function Nav() {
 
@@ -8,19 +9,22 @@ export default function Nav() {
             <nav className="flex justify-center">
                 <ul className="flex justify-between gap-16">
                     <li>
-                        <Link href="/">dp.</Link>
+                        <Link href="/">David Plaskett.</Link>
                     </li>
                     <li>
-                        <Link href="/portfolio">portfolio.</Link>
+                        <Link href="/portfolio">Portfolio.</Link>
                     </li>
                     <li>
-                        <Link href="/blog">blog.</Link>
+                        <Link href="/blog">Blog.</Link>
                     </li>
                     <li>
-                        <Link href="/about">about.</Link>
+                        <Link href="/about">About.</Link>
                     </li>
                 </ul>
             </nav>
+                <div className="absolute right-4 top-4">
+                    <ModeToggle />
+                </div>
         </header>
     )
 }

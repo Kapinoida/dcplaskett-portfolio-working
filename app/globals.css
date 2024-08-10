@@ -67,3 +67,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+#about > h1 {
+  @apply text-4xl text-center py-4;
+}
+
+#about h2 {
+  @apply text-3xl text-center py-4;
+}
+
+#about p {
+  @apply py-1;
+}
