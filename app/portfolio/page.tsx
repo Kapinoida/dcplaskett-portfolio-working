@@ -1,4 +1,5 @@
-import { getAllPostsData } from '../../lib/markdown';
+import Featured from '@/components/portfolio/featured';
+import { getAllPostsData } from '@/lib/markdown';
 import Link from 'next/link';
 
 export const dynamic = 'force-static';
@@ -14,6 +15,7 @@ const Portfolio = async () => {
   const allPostsData = getAllPostsData('portfolio');
   return (
     <div className='flex min-h-screen flex-col items-center justify-start p-24'>
+    <Featured />
       <h1 className='text-4xl py-4'>Portfolio.</h1>
       <ul>
         {allPostsData.map(({ id, date, title, description }) => (

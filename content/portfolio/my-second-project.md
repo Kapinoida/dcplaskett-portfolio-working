@@ -1,5 +1,5 @@
 ---
-title: "My First Project"
+title: "My Second Project"
 date: "2024-08-04"
 description: "This is the description of my project."
 skills: ["React.", "Dancing.", "JavaScript."]

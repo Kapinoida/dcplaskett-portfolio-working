@@ -23,6 +23,11 @@ export function getPostData(directory: string, fileName: string) {
     description: matterResult.data.description,
     date: matterResult.data.date,
     subtitle: matterResult.data.subtitle,
+    featured: matterResult.data.featured,
+    skills: matterResult.data.skills,
+    github: matterResult.data.github,
+    live: matterResult.data.live,
+    thumbnail: matterResult.data.thumbnail,
     ...matterResult.data,
     contentHtml,
   };
@@ -38,6 +43,12 @@ export function getAllPostsData(directory: string) {
     title: string;
     description: string;
     subtitle?: string;
+    featured?: boolean;
+    skills?: string[];
+    github?: string;
+    live?: string;
+    thumbnail?: string;
+    contentHtml?: string;
   };
 
   const allPostsData: PostData[] = fileNames.map((fileName) => {
@@ -52,6 +63,11 @@ export function getAllPostsData(directory: string) {
         description: matterResult.data.description,
         date: matterResult.data.date,
         subtitle: matterResult.data.subtitle,
+        featured: matterResult.data.featured,
+        skills: matterResult.data.skills,
+        github: matterResult.data.github,
+        live: matterResult.data.live,
+        thumbnail: matterResult.data.thumbnail,
         ...matterResult.data,
     };
   });
