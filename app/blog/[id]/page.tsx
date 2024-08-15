@@ -1,6 +1,7 @@
 import { getPostData, getAllPostsData } from '../../../lib/markdown';
 import { notFound } from 'next/navigation';
 import Head from 'next/head';
+import Category from '@/components/blog/category';
 
 export async function generateStaticParams() {
   const allPostsData = getAllPostsData('blog');
@@ -26,7 +27,8 @@ const BlogPost = async ({ params }: { params: { id: string } }) => {
       <h1 className='text-4xl py-4'>{postData.title}</h1>
       <h2>{postData.subtitle}</h2>
       <p>{postData.date}</p>
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <Category catergory={postData.category!} />
+      <div className='max-w-4xl text-justify' id='blog' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
     </div>
   );
 };

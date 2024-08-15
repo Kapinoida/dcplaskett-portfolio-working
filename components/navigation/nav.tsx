@@ -5,7 +5,7 @@ import { ModeToggle } from "../ui/mode-toggle";
 export default function Nav() {
 
     return (
-        <header className="bg-slate p-4">
+        <header className="bg-slate p-4 pt-8">
             <nav className="flex justify-center">
                 <ul className="flex justify-between gap-16">
                     <li>
@@ -22,7 +22,7 @@ export default function Nav() {
                     </li>
                 </ul>
             </nav>
-                <div className="absolute right-4 top-4">
+                <div className="absolute right-6 top-6">
                     <ModeToggle />
                 </div>
         </header>

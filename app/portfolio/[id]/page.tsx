@@ -32,7 +32,7 @@ const PortfolioPost = async ({ params }: { params: { id: string } }) => {
         <Skills skills={postData.skills} />
         <Links github={postData.github} live={postData.live} />
       </div>
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <div className='max-w-4xl text-justify' id='project' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
     </div>
   );
 };

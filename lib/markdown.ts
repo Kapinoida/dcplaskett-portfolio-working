@@ -28,6 +28,7 @@ export function getPostData(directory: string, fileName: string) {
     github: matterResult.data.github,
     live: matterResult.data.live,
     thumbnail: matterResult.data.thumbnail,
+    category: matterResult.data.category,
     ...matterResult.data,
     contentHtml,
   };
@@ -49,6 +50,7 @@ export function getAllPostsData(directory: string) {
     live?: string;
     thumbnail?: string;
     contentHtml?: string;
+    category?: string;
   };
 
   const allPostsData: PostData[] = fileNames.map((fileName) => {
@@ -68,6 +70,7 @@ export function getAllPostsData(directory: string) {
         github: matterResult.data.github,
         live: matterResult.data.live,
         thumbnail: matterResult.data.thumbnail,
+        category: matterResult.data.category,
         ...matterResult.data,
     };
   });

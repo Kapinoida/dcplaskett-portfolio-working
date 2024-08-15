@@ -1,5 +1,7 @@
+import Category from '@/components/blog/category';
 import { getAllPostsData } from '../../lib/markdown';
 import Link from 'next/link';
+import Featured from '@/components/blog/featuredblog';
 
 export const dynamic = 'force-static';
 
@@ -15,16 +17,30 @@ const Blog = async () => {
   return (
     <div className='flex min-h-screen flex-col items-center justify-start p-24'>
       <h1 className='text-4xl py-4'>Blog.</h1>
-      <ul>
-        {allPostsData.map(({ id, date, title, subtitle }) => (
-          <li key={id}>
-            <Link href={`/blog/${id}`}>
-              <h2>{title}</h2>
-              <p>{subtitle}</p>
-              <small>{date}</small>
-            </Link>
-          </li>
-        ))}
+      <h1 className='text-4xl py-4'>Featured.</h1>
+      <Featured />
+      <h1 className='text-4xl py-4'>Posts.</h1>
+      <ul className={`grid gap-8 ${
+        allPostsData.length <= 1
+          ? 'grid-cols-1'
+          : allPostsData.length === 2
+          ? 'grid-cols-2'
+          : 'grid-cols-3'
+        }`}>
+        {allPostsData.length > 0 ? (
+        allPostsData.map(({ id, date, title, subtitle, category }) => (
+            <li key={id}>
+              <Link href={`/blog/${id}`}>
+                <Category catergory={category!} />
+                <h2 className='bold text-2xl'>{title}</h2>
+                <p>{subtitle}</p>
+                <small>{date}</small>
+              </Link>
+            </li>
+          ))
+        ) : (
+          <p>No posts at this time.</p>
+        )}
       </ul>
     </div>
   );

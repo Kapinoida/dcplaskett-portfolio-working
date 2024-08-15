@@ -1,13 +1,12 @@
 import { FaEnvelopeOpen, FaGithub } from "react-icons/fa";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { Card } from "../ui/card";
 
 
 export default function Contact() {
     return (
         <div>
-            <Card className="flex flex-col items-center justify-center px-24 py-6 m-8">
+            <div className="flex flex-col items-center justify-center px-24 py-6 m-8">
                 <h1 className="text-4xl py-2">Get in touch.</h1>
                 <div className="flex gap-4 py-4 justify-center">
                     <Button variant="outline" asChild>
@@ -24,7 +23,7 @@ export default function Contact() {
                         <FaEnvelopeOpen />
                     </a>
                 </div>
-            </Card>
+            </div>
         </div>
     )
 }

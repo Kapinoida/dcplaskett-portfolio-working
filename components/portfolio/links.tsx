@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { Card, CardContent, CardHeader } from "../ui/card";
 
 
 export default function Links( {github, live}: { github: string, live: string} ) {

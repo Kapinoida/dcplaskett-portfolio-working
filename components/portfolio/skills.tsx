@@ -3,9 +3,19 @@
 
 export default function Skills( {skills}: { skills: string[]} ) {
     const skillColorMap : { [key: string]: string } = {
-        'JavaScript.': 'bg-yellow-500',
+        'JavaScript.': 'bg-blue-500',
         'React.': 'bg-blue-500',
         'Python.': 'bg-green-500',
+        'Selenium.': 'bg-green-500',
+        'SQL.': 'bg-red-500',
+        'NextJS.': 'bg-blue-500',
+        'Tailwind.': 'bg-yellow-500',
+        'CSS.': 'bg-yellow-500',
+        'HTML.': 'bg-purple-500',
+        'PHP.': 'bg-orange-500',
+        'TypeScript.': 'bg-blue-500',
+        'CMS.': 'bg-teal-500',
+        'jQuery.': 'bg-blue-500',
     }
 
     return (

@@ -1,6 +1,6 @@
 # About me, Dave.
 
-Hi there! I'm Dave, a passionate web developer and programming guru based in Minooka, Illinois. I work as an Information System Specialist for Minooka CCSD 201, where I blend my love for coding with my commitment to enhancing our educational systems.
+Hi there! I'm Dave, a passionate web developer, programming guru, and former child based in Minooka, Illinois. I work as an Information System Specialist for Minooka CCSD 201, where I blend my love for coding with my commitment to enhancing our educational systems. Totally, not a robot.
 
 ## My Journey.
 

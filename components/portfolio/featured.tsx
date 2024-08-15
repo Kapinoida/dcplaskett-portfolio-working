@@ -19,8 +19,8 @@ const Featured = async () => {
 
   return (
     <div className='flex flex-col items-center justify-start'>
-        <h1 className='text-4xl py-4'>Featured.</h1>
-        <ul className='flex items-center justify-between gap-4'>
+      
+      <ul className={`grid grid-cols-${featuredProjects.length} gap-8`}>
             {featuredProjects.length > 0 ? (
                 featuredProjects.map(({ id, title, description, thumbnail }) => (
                     <li key={id} >
