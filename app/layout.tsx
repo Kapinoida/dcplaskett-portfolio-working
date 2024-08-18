@@ -4,7 +4,7 @@ import "./globals.css";
 import Nav from "@/components/navigation/nav";
 import Footer from "@/components/footer/footer";
 import { ThemeProvider } from "@/components/theme-provider";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const special = Platypi({
   weight: "400",
   subsets: ["latin"],
@@ -35,6 +35,7 @@ export default function RootLayout({
         {children}
         <Footer />
         </ThemeProvider>
+        <SpeedInsights/>
         </body>
     </html>
   );
