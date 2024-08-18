@@ -63,7 +63,7 @@ export function getAllPostsData(directory: string) {
         id,
         title: matterResult.data.title,
         description: matterResult.data.description,
-        date: matterResult.data.date,
+        date: matterResult.data.date ? new Date(matterResult.data.date).toISOString() : undefined,
         subtitle: matterResult.data.subtitle,
         featured: matterResult.data.featured,
         skills: matterResult.data.skills,
