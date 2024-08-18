@@ -69,13 +69,13 @@
 }
 
 #about > h1, #project > h1, #blog > h1 {
-  @apply text-4xl text-center py-4;
+  @apply md:text-4xl text-2xl text-center py-4;
 }
 
 #about h2, #project h2, #blog h2 {
-  @apply text-3xl text-center py-4;
+  @apply md:text-3xl text-xl text-center py-4;
 }
 
 #about p, #project p, #blog p {
-  @apply py-1;
+  @apply py-1 md:text-lg text-sm;
 }

@@ -24,11 +24,11 @@ export default function Footer() {
     }, []);
 
     return (
-        <footer className="bg-slate p-4 flex flex-col items-center justify-center text-sm">
+        <footer className="bg-slate p-4 flex flex-col items-center justify-center md:text-sm text-xs mx-4 text-center">
             <p>
                 © {new Date().getFullYear()} David Plaskett. {customText}
             </p>
-            <p className="flex gap-4 text-lg pt-2">
+            <p className="flex gap-4 md:text-lg text-sm pt-2">
                 <a href="https://github.com/Kapinoida" target="_blank" rel="noreferrer">
                     <FaGithub />
                 </a>

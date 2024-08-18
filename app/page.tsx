@@ -7,10 +7,10 @@ import FeaturedBlog from "@/components/blog/featuredblog";
 export default async function Home() {
   return (
     <main>
-      <section className="flex min-h-screen flex-col items-center justify-center p-24">
-        <h1 className="text-4xl py-4">Hi, I'm Dave.</h1>
-        <h2 className="text-2xl">I like to build things.</h2>
-        <p>Sometimes, they are good.</p>
+      <section className="flex min-h-screen flex-col items-center justify-center pt-24 mx-4">
+        <h1 className="md:text-4xl text-3xl py-4">Hi, I'm Dave.</h1>
+        <h2 className="md:text-2xl text-xl">I like to build things.</h2>
+        <p className="md:text-lg text-md">Sometimes, they are good.</p>
         <div className="flex gap-4 py-4">
           <Button variant="outline" asChild>
             <Link href="/resume.pdf">
@@ -25,17 +25,17 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="flex min-h-screen flex-col items-center justify-center p-24">
-        <h1 className="text-4xl py-4">Things I built.</h1>
+      <section className="flex min-h-screen flex-col items-center justify-center pt-24 mx-4">
+        <h1 className="md:text-4xl text-3xl py-4">Things I built.</h1>
         <Featured />
       </section>
 
-      <section className="flex min-h-screen flex-col items-center justify-center p-24">
-        <h1 className="text-4xl py-4">Things I wrote.</h1>
+      <section className="flex min-h-screen flex-col items-center justify-center pt-24 mx-4">
+        <h1 className="md:text-4xl text-3xl py-4">Things I wrote.</h1>
         <FeaturedBlog />
       </section>
 
-      <section className="flex min-h-screen flex-col items-center justify-center p-24">
+      <section className="flex min-h-screen flex-col items-center justify-center pt-24 mx-4">
         <Contact />
       </section>
     </main>

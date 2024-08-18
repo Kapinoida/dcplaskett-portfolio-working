@@ -15,17 +15,17 @@ export async function generateStaticParams() {
 const Blog = async () => {
   const allPostsData = getAllPostsData('blog');
   return (
-    <div className='flex min-h-screen flex-col items-center justify-start p-24'>
-      <h1 className='text-4xl py-4'>Blog.</h1>
-      <h1 className='text-4xl py-4'>Featured.</h1>
+    <div className='flex min-h-screen flex-col items-center justify-start pt-24 mx-4'>
+      <h1 className='md:text-4xl text-3xl py-4'>Blog.</h1>
+      <h1 className='md:text-4xl text-3xl py-4'>Featured.</h1>
       <Featured />
-      <h1 className='text-4xl py-4'>Posts.</h1>
+      <h1 className='md:text-4xl text-3xl py-4'>Posts.</h1>
       <ul className={`grid gap-8 ${
         allPostsData.length <= 1
-          ? 'grid-cols-1'
+          ? 'md:grid-cols-1 grid-col-1'
           : allPostsData.length === 2
-          ? 'grid-cols-2'
-          : 'grid-cols-3'
+          ? 'md:grid-cols-2 grid-col-1'
+          : 'md:grid-cols-3 grid-col-1'
         }`}>
         {allPostsData.length > 0 ? (
         allPostsData.map(({ id, date, title, subtitle, category }) => (

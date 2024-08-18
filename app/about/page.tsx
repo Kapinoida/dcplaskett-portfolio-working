@@ -17,9 +17,9 @@ const About = async ({ params }: { params: { id: string } }) => {
   }
 
   return (
-    <div className='flex flex-col min-h-screen items-center justify-start p-24 text-justify'>
-      <div className='max-w-4xl' id='about' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      <div className="flex flex-col items-center justify-center pt-24">
+    <div className='flex flex-col min-h-screen items-center justify-start pt-24 text-justify'>
+      <div className='md:max-w-4xl mx-4' id='about' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <div className="flex flex-col items-center justify-center pb-24">
         <Contact />
       </div>
     </div>

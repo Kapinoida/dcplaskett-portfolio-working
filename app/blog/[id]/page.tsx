@@ -17,14 +17,14 @@ const BlogPost = async ({ params }: { params: { id: string } }) => {
   }
 
   return (
-    <div className='flex min-h-screen flex-col items-center justify-start p-24'>
+    <div className='flex min-h-screen flex-col items-center justify-start pt-24 m-4'>
       <Head>
         <title>{postData.title}</title>
         <meta name="description" content={postData.description} />
         <meta property="og:title" content={postData.title} />
         <meta property="og:description" content={postData.description} />
       </Head>
-      <h1 className='text-4xl py-4'>{postData.title}</h1>
+      <h1 className='md:text-4xl text-3xl py-4'>{postData.title}</h1>
       <h2>{postData.subtitle}</h2>
       <p>{postData.date}</p>
       <Category catergory={postData.category!} />
