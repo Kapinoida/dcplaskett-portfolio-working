@@ -8,6 +8,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 const special = Platypi({
   weight: "400",
   subsets: ["latin"],
+  display: "swap",
+  adjustFontFallback: false
 });
 
 export const metadata: Metadata = {
