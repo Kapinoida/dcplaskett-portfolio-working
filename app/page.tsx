@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <main>
       <section className="flex min-h-screen flex-col items-center justify-center pt-24 mx-4">
-        <h1 className="md:text-4xl text-3xl py-4">Hi, I`&apos;`m Dave.</h1>
+        <h1 className="md:text-4xl text-3xl py-4">Hi, I&apos;m Dave.</h1>
         <h2 className="md:text-2xl text-xl">I like to build things.</h2>
         <p className="md:text-lg text-md">Sometimes, they are good.</p>
         <div className="flex gap-4 py-4">
