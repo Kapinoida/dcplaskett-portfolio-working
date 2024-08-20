@@ -13,8 +13,8 @@ const special = Platypi({
 });
 
 export const metadata: Metadata = {
-  title: "dp.",
-  description: "david plaskett's portfolio",
+  title: "David Plaskett.",
+  description: "David Plaskett's Portfolio",
 };
 
 export default function RootLayout({
