@@ -21,12 +21,12 @@ const Portfolio = async () => {
       <h1 className='md:text-3xl text-2xl py-4'>Featured.</h1>
       <Featured />
       <h1 className='md:text-3xl text-2xl py-4'>Projects.</h1>
-      <ul className={`grid gap-8 ${
+      <ul className={`grid gap-8 grid-col-1 ${
         allPostsData.length <= 1
-          ? 'md:grid-cols-1 grid-col-1'
+          ? 'md:grid-cols-1'
           : allPostsData.length === 2
-          ? 'md:grid-cols-2 grid-col-1'
-          : 'md:grid-cols-3 grid-col-1'
+          ? 'md:grid-cols-2'
+          : 'md:grid-cols-3'
         }`}>
         {allPostsData.length > 0 ? (
           allPostsData.map(({ id, title, description, skills }) => (

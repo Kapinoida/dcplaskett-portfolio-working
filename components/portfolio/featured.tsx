@@ -18,9 +18,15 @@ const Featured = async () => {
   const featuredProjects = allPostsData.filter(({ featured }) => featured);
 
   return (
-    <div className='flex flex-col items-center justify-start'>
+    <div className='flex flex-col mx-auto'> 
       
-      <ul className={`grid grid-cols-${featuredProjects.length} gap-8`}>
+      <ul className={`grid gap-8 grid-col-1 ${
+        featuredProjects.length <= 1
+          ? 'md:grid-col-1'
+          : featuredProjects.length === 2
+          ? 'md:grid-cols-2'
+          : 'md:grid-cols-3'
+        }`}>
             {featuredProjects.length > 0 ? (
                 featuredProjects.map(({ id, title, description, thumbnail }) => (
                     <li key={id} >
