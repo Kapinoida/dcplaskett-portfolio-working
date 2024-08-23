@@ -10,9 +10,18 @@ export default function Footer() {
         'Functions served farm-to-table.',
         'Plated atop micro-greens.',
         'Barbecued over an open firewall.',
-        'Garnished with fresh metadata',
+        'Garnished with fresh metadata.',
         'Tossed with a mixed array salad.',
         'Scrambled with free-range megs.',
+        'Crafted with artisanal algorithms.',
+        'Organically compiled.',
+        'Marinated in machine learning.',
+        'Fermented with functional programming.',
+        'Caffeinated with React.',
+        'Pressure-cooked in the cloud.',
+        'Aged to perfection in a server rack.',
+        'Distilled from digital grains.',
+        ''
     ];
 
     const getRandomText = () => footerText[Math.floor(Math.random() * footerText.length)];
