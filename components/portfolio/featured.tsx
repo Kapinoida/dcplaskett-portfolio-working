@@ -32,7 +32,7 @@ const Featured = async () => {
                     <li key={id} >
                         <Link href={`/portfolio/${id}`} className='flex flex-col justify-center items-center'>
                             {thumbnail && (
-                                <Image src={thumbnail} alt={title} width={200} height={200} className='rounded-xl p-4' />
+                                <Image src={thumbnail} alt={title} width={200} height={200} className='rounded-3xl p-4' />
                             )}
                             <h2 className='bold'>{title}</h2>
                             <p className='text-sm'>{description}</p>

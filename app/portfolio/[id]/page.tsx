@@ -28,7 +28,7 @@ const PortfolioPost = async ({ params }: { params: { id: string } }) => {
         <meta property="og:description" content={postData.description} />
       </Head>
       <h1 className='md:text-4xl text-3xl py-4 text-center'>{postData.title}</h1>
-      <Image src={postData.thumbnail} alt={postData.title} width={500} height={500} className='rounded-xl p-4' />
+      <Image src={postData.thumbnail} alt={postData.title} width={500} height={500} className='rounded-3xl p-4' />
       <div className="flex md:flex-row flex-col items-center justify-center p-4 size-max">
         <Skills skills={postData.skills} />
         <Links github={postData.github} live={postData.live} />

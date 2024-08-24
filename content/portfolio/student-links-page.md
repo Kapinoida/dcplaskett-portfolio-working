@@ -1,6 +1,6 @@
 ---
 title: Student Links Page.
-date: ""
+date: 2019-01-06
 description: A page for students to get to apps they need.
 skills:
   - JavaScript.
@@ -10,7 +10,7 @@ skills:
 featured: true
 github: https://github.com/Kapinoida/student-links
 live: https://links.min201.org
-thumbnail: /portfolio/links-page.png
+thumbnail: /portfolio/student-links-page.png
 ---
 # Student Links Page.
 
