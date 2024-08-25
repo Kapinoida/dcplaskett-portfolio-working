@@ -15,6 +15,18 @@ const special = Platypi({
 export const metadata: Metadata = {
   title: "David Plaskett.",
   description: "David Plaskett's Portfolio",
+  icons: {
+    icon: [
+      {
+        url: '/favicon.svg',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/favicon.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
