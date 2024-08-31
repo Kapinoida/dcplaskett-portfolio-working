@@ -21,7 +21,6 @@ export default function Footer() {
         'Pressure-cooked in the cloud.',
         'Aged to perfection in a server rack.',
         'Distilled from digital grains.',
-        ''
     ];
 
     const getRandomText = () => footerText[Math.floor(Math.random() * footerText.length)];
