@@ -10,7 +10,7 @@ skills:
   - Python.
   - Google Sheets.
 featured: false
-github: https://github.com/Kapinoida/something
+github: https://github.com/Kapinoida/min201-directory-extension
 live: 
 thumbnail: /portfolio/minooka-extension.png
 ---

@@ -12,6 +12,10 @@ const skillColorMap : { [key: string]: string } = {
     'TypeScript.': 'text-blue-500',
     'CMS.': 'text-teal-500',
     'jQuery.': 'text-blue-500',
+    'PowerSchool.': 'text-red-500',
+    'PowerSchool API.': 'text-red-500',
+    'Google Sheets.': 'text-orange-500',
+    'Google API.': 'text-orange-500',
 }
 
 export default skillColorMap
