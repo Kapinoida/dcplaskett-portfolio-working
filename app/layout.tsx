@@ -38,7 +38,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={special.className}>
-        <Analytics />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -50,6 +49,7 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
