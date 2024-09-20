@@ -5,11 +5,12 @@ import Nav from "@/components/navigation/nav";
 import Footer from "@/components/footer/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 const special = Platypi({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
-  adjustFontFallback: false
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -18,12 +19,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/favicon.svg',
-        media: '(prefers-color-scheme: light)',
+        url: "/favicon.svg",
+        media: "(prefers-color-scheme: light)",
       },
       {
-        url: '/favicon.png',
-        media: '(prefers-color-scheme: dark)',
+        url: "/favicon.png",
+        media: "(prefers-color-scheme: dark)",
       },
     ],
   },
@@ -37,18 +38,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={special.className}>
-        <ThemeProvider 
+        <Analytics />
+        <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-        <Nav />
-        {children}
-        <Footer />
+          <Nav />
+          {children}
+          <Footer />
         </ThemeProvider>
-        <SpeedInsights/>
-        </body>
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
