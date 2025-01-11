@@ -4,10 +4,8 @@ subtitle: The start of something new.
 date: 08-18-2024
 description: This is the description of my first post.
 category: Nonsense.
-featured: true
+featured: false
 ---
-
-
 
 # Hello World
 
