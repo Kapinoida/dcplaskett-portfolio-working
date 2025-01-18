@@ -3,10 +3,8 @@ title: New project - Script Portal.
 subtitle: A way to run scripts from the web.
 date: 09-02-2024
 category: Developing in Public.
-featured: true
+featured: false
 ---
-
-  
 
 # New Project - Script Portal.
 
