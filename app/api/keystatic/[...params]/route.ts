@@ -11,6 +11,32 @@ export const POST = handler.POST;
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
+  const code = url.searchParams.get('code');
+
+  // DEBUG: Inspect Callback Error
+  if (code && url.pathname.endsWith('/github/oauth/callback')) {
+    console.log('--- MANUAL DEBUG CALLBACK START ---');
+    console.log('Code:', code);
+    try {
+      const tokenRes = await fetch('https://github.com/login/oauth/access_token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          client_id: process.env.KEYSTATIC_GITHUB_CLIENT_ID,
+          client_secret: process.env.KEYSTATIC_GITHUB_CLIENT_SECRET,
+          code: code,
+        }),
+      });
+      const tokenData = await tokenRes.json();
+      console.log('GITHUB TOKEN RESPONSE:', JSON.stringify(tokenData, null, 2));
+    } catch (err) {
+      console.error('MANUAL FETCH ERROR:', err);
+    }
+    console.log('--- MANUAL DEBUG CALLBACK END ---');
+  }
   
   // Intercept the Login call to force scope
   if (url.pathname.endsWith('/github/login')) {
