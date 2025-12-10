@@ -7,7 +7,14 @@ import html from 'remark-html';
 const contentDirectory = path.join(process.cwd(), 'content');
 
 export function getPostData(directory: string, fileName: string) {
-  const fullPath = path.join(contentDirectory, directory, `${fileName}.md`);
+  const mdocPath = path.join(contentDirectory, directory, `${fileName}.mdoc`);
+  const mdPath = path.join(contentDirectory, directory, `${fileName}.md`);
+  
+  let fullPath = mdPath;
+  if (fs.existsSync(mdocPath)) {
+    fullPath = mdocPath;
+  }
+
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   const matterResult = matter(fileContents);
@@ -54,7 +61,7 @@ export function getAllPostsData(directory: string) {
   };
 
   const allPostsData: PostData[] = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, '');
+    const id = fileName.replace(/\.mdoc$|\.md$/, '');
     const fullPath = path.join(dirPath, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);

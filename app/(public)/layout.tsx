@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Platypi } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import Nav from "@/components/navigation/nav";
 import Footer from "@/components/footer/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import BackToTop from "@/components/ui/back-to-top";
+
 const special = Platypi({
   weight: "400",
   subsets: ["latin"],
@@ -47,6 +49,7 @@ export default function RootLayout({
           <Nav />
           {children}
           <Footer />
+          <BackToTop />
         </ThemeProvider>
         <SpeedInsights />
         <Analytics />

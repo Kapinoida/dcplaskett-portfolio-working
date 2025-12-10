@@ -1,5 +1,5 @@
 import Category from '@/components/blog/category';
-import { getAllPostsData } from '../../lib/markdown';
+import { getAllPostsData } from '@/lib/markdown';
 import Link from 'next/link';
 import Featured from '@/components/blog/featuredblog';
 
