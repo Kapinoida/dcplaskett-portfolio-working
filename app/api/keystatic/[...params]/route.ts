@@ -1,4 +1,4 @@
-import { makeRouteHandler } from '../../../../node_modules/@keystatic/next/dist/keystatic-next-route-handler.js';
+import { makeRouteHandler } from '@keystatic/next/route-handler';
 import keystaticConfig from '@/keystatic.config';
 
 export const { GET, POST } = makeRouteHandler({
