@@ -1,15 +1,10 @@
 import { config, fields, collection } from '@keystatic/core';
 
 export default config({
-  storage:
-    process.env.NODE_ENV === 'development'
-      ? {
-          kind: 'local',
-        }
-      : {
-          kind: 'github',
-          repo: 'Kapinoida/dcplaskett-portfolio-working',
-        },
+  storage: {
+    kind: 'github',
+    repo: 'Kapinoida/dcplaskett-portfolio-working',
+  },
   collections: {
     blog: collection({
       label: 'Blog',
