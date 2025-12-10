@@ -3,41 +3,36 @@ import keystaticConfig from '@/keystatic.config';
 
 
 
-export const POST = makeRouteHandler({
-  config: keystaticConfig,
-}).POST;
+
+const config = { config: keystaticConfig };
+const handler = makeRouteHandler(config);
+
+export const POST = handler.POST;
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
-  const code = url.searchParams.get('code');
-
-  if (code && url.pathname.includes('github/oauth/callback')) {
-    console.log('--- MANUAL DEBUG START ---');
-    console.log('Code found:', code);
+  
+  // Intercept the Login call to force scope
+  if (url.pathname.endsWith('/github/login')) {
+    const response = await handler.GET(request);
+    const location = response.headers.get('Location');
     
-    // Attempt manual exchange to see the error
-    try {
-      const tokenRes = await fetch('https://github.com/login/oauth/access_token', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          client_id: process.env.KEYSTATIC_GITHUB_CLIENT_ID,
-          client_secret: process.env.KEYSTATIC_GITHUB_CLIENT_SECRET,
-          code: code,
-          // redirect_uri is optional but good to verify if included
-        }),
-      });
+    if (response.status === 307 && location && location.includes('github.com/login/oauth/authorize')) {
+      const loginUrl = new URL(location);
+      const outputScope = loginUrl.searchParams.get('scope');
       
-      const tokenData = await tokenRes.json();
-      console.log('GITHUB RESPONSE:', JSON.stringify(tokenData, null, 2));
-    } catch (err) {
-      console.error('MANUAL FETCH ERROR:', err);
+      // If scope is missing or doesn't include 'repo', force it
+      if (!outputScope || !outputScope.includes('repo')) {
+        console.log('PATCH: Forcing scope=repo on GitHub Login');
+        loginUrl.searchParams.set('scope', 'repo');
+        return new Response(null, {
+          status: 307,
+          headers: { Location: loginUrl.toString(), 'Set-Cookie': response.headers.get('Set-Cookie') || '' }
+        });
+      }
     }
-    console.log('--- MANUAL DEBUG END ---');
+    return response;
   }
 
-  return makeRouteHandler({ config: keystaticConfig }).GET(request);
+  return handler.GET(request);
 }
