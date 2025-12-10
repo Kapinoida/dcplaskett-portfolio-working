@@ -25,9 +25,13 @@ export async function GET(request: Request) {
       if (!outputScope || !outputScope.includes('repo')) {
         console.log('PATCH: Forcing scope=repo on GitHub Login');
         loginUrl.searchParams.set('scope', 'repo');
+        
+        const newHeaders = new Headers(response.headers);
+        newHeaders.set('Location', loginUrl.toString());
+
         return new Response(null, {
           status: 307,
-          headers: { Location: loginUrl.toString(), 'Set-Cookie': response.headers.get('Set-Cookie') || '' }
+          headers: newHeaders
         });
       }
     }
