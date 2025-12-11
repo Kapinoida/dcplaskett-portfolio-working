@@ -8,9 +8,11 @@ console.log('[Keystatic Init] Environment check:', {
   hasClientId: !!process.env.KEYSTATIC_GITHUB_CLIENT_ID,
   hasClientSecret: !!process.env.KEYSTATIC_GITHUB_CLIENT_SECRET,
   hasSecret: !!process.env.KEYSTATIC_SECRET,
+  hasGithubAppSlug: !!process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG,
   clientIdLength: process.env.KEYSTATIC_GITHUB_CLIENT_ID?.length || 0,
   clientSecretLength: process.env.KEYSTATIC_GITHUB_CLIENT_SECRET?.length || 0,
   secretLength: process.env.KEYSTATIC_SECRET?.length || 0,
+  githubAppSlugLength: process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG?.length || 0,
   nodeEnv: process.env.NODE_ENV,
 });
 
