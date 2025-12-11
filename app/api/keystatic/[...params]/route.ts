@@ -27,34 +27,22 @@ export async function GET(request: Request) {
         if (!outputScope || !outputScope.includes('repo')) {
           loginUrl.searchParams.set('scope', 'repo');
           
-          const newHeaders = new Headers();
-          
-          // Copy all headers EXCEPT Set-Cookie first to avoid merging issues
-          response.headers.forEach((val, key) => {
-             if (key.toLowerCase() !== 'set-cookie') newHeaders.append(key, val);
-          });
-          
-          // Safely copy Set-Cookie headers
-          // @ts-ignore - getSetCookie is available in Next.js/Node 18+ environment
-          const cookies = typeof response.headers.getSetCookie === 'function' 
-            ? response.headers.getSetCookie() 
-            : [response.headers.get('Set-Cookie')].filter(Boolean);
-            
-          console.log('PATCH DEBUG: Original Cookies found:', cookies.length, cookies);
-
-          cookies.forEach((cookie: string | null) => {
-             if (cookie) {
-               console.log('PATCH DEBUG: Copying cookie:', cookie);
-               newHeaders.append('Set-Cookie', cookie);
-             }
-          });
-
-          newHeaders.set('Location', loginUrl.toString());
-
-          return new Response(null, {
-            status: 307,
-            headers: newHeaders
-          });
+          try {
+            // Attempt to mutate the existing response header to preserve all other state (cookies)
+            response.headers.set('Location', loginUrl.toString());
+            return response;
+          } catch (err) {
+            console.error('PATCH ERROR: Could not mutate headers', err);
+            // Fallback: Clone response
+            return new Response(response.body, {
+              status: response.status,
+              statusText: response.statusText,
+              headers: {
+                ...Object.fromEntries(response.headers.entries()),
+                'Location': loginUrl.toString()
+              }
+            });
+          }
         }
     }
     return response;
