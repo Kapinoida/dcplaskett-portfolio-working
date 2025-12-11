@@ -20,7 +20,7 @@ export async function GET(request: Request) {
     if (response.status === 307 && location && location.includes('github.com/login/oauth/authorize')) {
       const loginUrl = new URL(location);
 
-        const loginUrl = new URL(location);
+
         const outputScope = loginUrl.searchParams.get('scope');
         
         // If scope is missing or doesn't include 'repo', force it
