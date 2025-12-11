@@ -3,8 +3,24 @@ import keystaticConfig from '@/keystatic.config';
 
 export const dynamic = 'force-dynamic';
 
+// Debug: Log environment variable presence (NOT the actual values for security)
+console.log('[Keystatic Init] Environment check:', {
+  hasClientId: !!process.env.KEYSTATIC_GITHUB_CLIENT_ID,
+  hasClientSecret: !!process.env.KEYSTATIC_GITHUB_CLIENT_SECRET,
+  hasSecret: !!process.env.KEYSTATIC_SECRET,
+  clientIdLength: process.env.KEYSTATIC_GITHUB_CLIENT_ID?.length || 0,
+  clientSecretLength: process.env.KEYSTATIC_GITHUB_CLIENT_SECRET?.length || 0,
+  secretLength: process.env.KEYSTATIC_SECRET?.length || 0,
+  nodeEnv: process.env.NODE_ENV,
+});
+
+// CRITICAL FIX: Explicitly pass environment variables to makeRouteHandler
+// Vercel might not be exposing process.env correctly to Keystatic's internal checks
 const handler = makeRouteHandler({
   config: keystaticConfig,
+  clientId: process.env.KEYSTATIC_GITHUB_CLIENT_ID,
+  clientSecret: process.env.KEYSTATIC_GITHUB_CLIENT_SECRET,
+  secret: process.env.KEYSTATIC_SECRET,
 });
 
 export const POST = handler.POST;
