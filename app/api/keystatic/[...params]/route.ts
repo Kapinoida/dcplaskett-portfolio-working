@@ -20,35 +20,43 @@ export async function GET(request: Request) {
   // Intercept the Login call to force scope
   if (url.pathname.endsWith('/github/login')) {
     const response = await handler.GET(request);
+    
+    // DEBUG: Check if Keystatic set cookies in the store
+    // @ts-ignore
+    const ctxCookies = cookies().getAll();
+    console.log('PATCH DEBUG: Context Cookies after handler:', ctxCookies.map(c => c.name));
+
     const location = response.headers.get('Location');
     
     if (response.status === 307 && location && location.includes('github.com/login/oauth/authorize')) {
       const loginUrl = new URL(location);
-
-
-        const outputScope = loginUrl.searchParams.get('scope');
+      const outputScope = loginUrl.searchParams.get('scope');
+      
+      // If scope is missing or doesn't include 'repo', force it
+      if (!outputScope || !outputScope.includes('repo')) {
+        loginUrl.searchParams.set('scope', 'repo');
         
-        // If scope is missing or doesn't include 'repo', force it
-        if (!outputScope || !outputScope.includes('repo')) {
-          loginUrl.searchParams.set('scope', 'repo');
-          
-          try {
-            // Attempt to mutate the existing response header to preserve all other state (cookies)
+        try {
+            // Apply location change
             response.headers.set('Location', loginUrl.toString());
-            return response;
-          } catch (err) {
-            console.error('PATCH ERROR: Could not mutate headers', err);
-            // Fallback: Clone response
-            return new Response(response.body, {
-              status: response.status,
-              statusText: response.statusText,
-              headers: {
-                ...Object.fromEntries(response.headers.entries()),
-                'Location': loginUrl.toString()
-              }
+
+            // CRITICAL FIX: Manually verify/append context cookies to the response
+            // This ensures that if Keystatic used cookies().set(), we definitely send them
+            ctxCookies.forEach(c => {
+                if (c.name.includes('keystatic')) {
+                    console.log('PATCH: Syncing cookie to header:', c.name);
+                    // Construct Set-Cookie header manually if needed
+                    // Note: basic construction, might miss specialized attributes like HttpOnly if not exposed in .getAll()
+                    // But usually Next.js handles this. If we append here, we double-ensure.
+                    response.headers.append('Set-Cookie', `${c.name}=${c.value}; Path=/; SameSite=Lax`);
+                }
             });
-          }
+
+            return response;
+        } catch (err) {
+            console.error('PATCH ERROR:', err);
         }
+      }
     }
     return response;
   }
