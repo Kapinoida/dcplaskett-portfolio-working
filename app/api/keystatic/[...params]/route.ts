@@ -1,8 +1,7 @@
-import { makeRouteHandler } from '@keystatic/next/route-handler';
-import keystaticConfig from '@/keystatic.config';
 
+import { cookies } from 'next/headers';
 
-
+export const dynamic = 'force-dynamic';
 
 const config = { config: keystaticConfig };
 const handler = makeRouteHandler(config);
@@ -11,6 +10,11 @@ export const POST = handler.POST;
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
+
+  // DEBUG: Check what cookies are entering/leaving
+  // @ts-ignore
+  const cookieStore = cookies();
+  console.log('COOKIE STORE (Pre-Logic):', cookieStore.getAll());
   
   // Intercept the Login call to force scope
   if (url.pathname.endsWith('/github/login')) {
