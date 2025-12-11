@@ -40,8 +40,9 @@ export async function GET(request: Request) {
             ? response.headers.getSetCookie() 
             : [response.headers.get('Set-Cookie')].filter(Boolean);
             
-          cookies.forEach((cookie: string) => {
-             newHeaders.append('Set-Cookie', cookie);
+            
+          cookies.forEach((cookie: string | null) => {
+             if (cookie) newHeaders.append('Set-Cookie', cookie);
           });
 
           newHeaders.set('Location', loginUrl.toString());
