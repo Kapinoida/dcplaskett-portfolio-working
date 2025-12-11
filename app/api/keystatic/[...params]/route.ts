@@ -1,4 +1,5 @@
-
+import { makeRouteHandler } from '@keystatic/next/route-handler';
+import keystaticConfig from '@/keystatic.config';
 import { cookies } from 'next/headers';
 
 export const dynamic = 'force-dynamic';
