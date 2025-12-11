@@ -1,4 +1,5 @@
 import { getPostData, getAllPostsData } from '@/lib/markdown';
+import { formatDate } from '@/lib/utils';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Category from '@/components/blog/category';
@@ -38,7 +39,7 @@ const BlogPost = async ({ params }: { params: { id: string } }) => {
     <div className='flex min-h-screen flex-col items-center justify-start pt-24 m-4'>
       <h1 className='md:text-4xl text-3xl py-4'>{postData.title}</h1>
       <h2>{postData.subtitle}</h2>
-      <p>{postData.date}</p>
+      <p>{formatDate(postData.date!)}</p>
       <Category catergory={postData.category!} />
       <div className='max-w-4xl prose prose-neutral dark:prose-invert mx-auto' id='blog' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
     </div>

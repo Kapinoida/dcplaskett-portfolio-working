@@ -25,10 +25,11 @@ export function getPostData(directory: string, fileName: string) {
   const contentHtml = processedContent.toString();
 
   return {
+    ...matterResult.data,
     fileName,
     title: matterResult.data.title,
     description: matterResult.data.description,
-    date: matterResult.data.date,
+    date: matterResult.data.date ? new Date(matterResult.data.date).toISOString() : undefined,
     subtitle: matterResult.data.subtitle,
     featured: matterResult.data.featured,
     skills: matterResult.data.skills,
@@ -36,7 +37,6 @@ export function getPostData(directory: string, fileName: string) {
     live: matterResult.data.live,
     thumbnail: matterResult.data.thumbnail,
     category: matterResult.data.category,
-    ...matterResult.data,
     contentHtml,
   };
 }
@@ -67,6 +67,7 @@ export function getAllPostsData(directory: string) {
     const matterResult = matter(fileContents);
 
     return {
+        ...matterResult.data,
         id,
         title: matterResult.data.title,
         description: matterResult.data.description,
@@ -78,7 +79,6 @@ export function getAllPostsData(directory: string) {
         live: matterResult.data.live,
         thumbnail: matterResult.data.thumbnail,
         category: matterResult.data.category,
-        ...matterResult.data,
     };
   });
 

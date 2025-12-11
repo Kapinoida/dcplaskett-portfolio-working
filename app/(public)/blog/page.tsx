@@ -1,4 +1,5 @@
 import Category from '@/components/blog/category';
+import { formatDate } from '@/lib/utils';
 import { getAllPostsData } from '@/lib/markdown';
 import Link from 'next/link';
 import Featured from '@/components/blog/featuredblog';
@@ -34,7 +35,7 @@ const Blog = async () => {
                 <Category catergory={category!} />
                 <h2 className='bold text-2xl'>{title}</h2>
                 <p>{subtitle}</p>
-                <small>{date}</small>
+                <small>{formatDate(date!)}</small>
               </Link>
             </li>
           ))
