@@ -40,9 +40,13 @@ export async function GET(request: Request) {
             ? response.headers.getSetCookie() 
             : [response.headers.get('Set-Cookie')].filter(Boolean);
             
-            
+          console.log('PATCH DEBUG: Original Cookies found:', cookies.length, cookies);
+
           cookies.forEach((cookie: string | null) => {
-             if (cookie) newHeaders.append('Set-Cookie', cookie);
+             if (cookie) {
+               console.log('PATCH DEBUG: Copying cookie:', cookie);
+               newHeaders.append('Set-Cookie', cookie);
+             }
           });
 
           newHeaders.set('Location', loginUrl.toString());
