@@ -1,9 +1,10 @@
 # About me, Dave.
 
-Hi there! I'm Dave, a passionate web developer, programming guru, and former child based in Minooka, Illinois. I work as an Information System Specialist for Minooka CCSD 201, where I blend my love for coding with my commitment to enhancing our educational systems. Totally, not a robot.
+Hi there! I'm Dave, a passionate web developer, programming guru, and former child based in Minooka, Illinois. I work as an Information System Specialist for Minooka CCSD 201, where I blend my love for coding with my commitment to enhancing our educational systems. Totally, not a robot, I swaer.
 
 ## My Journey.
 
+s
 My career has been a thrilling adventure through the world of code and problem-solving. Things started small with humble beginnings going to school full-time while working in construction. Once I had the opportunity to work in education, I really found my stride using technology to enhance our community.
 
 From designing a fun and usable landing page for thousands of students to orchestrating the main website for our entire district, I thrive on creating innovative solutions. Once I moved into my current position, I was about to unlock many skills using data and programming languages to help our systems flow.
@@ -22,8 +23,8 @@ When I'm not deep into coding, I enjoy reading, gaming, and film. Books are my e
 
 ## Personal Life.
 
-Family is at the heart of everything I do. My wonderful partner and I have a spirited son named Ollie, who keeps us on our toes. Parenting brings its own set of challenges and joys, and I'm always learning new ways to balance my professional and personal life. 
+Family is at the heart of everything I do. My wonderful partner and I have a spirited son named Ollie, who keeps us on our toes. Parenting brings its own set of challenges and joys, and I'm always learning new ways to balance my professional and personal life.
 
 ## Let's Connect.
 
-I'm always eager to connect with like-minded individuals and explore new opportunities. Whether you're interested in collaborating on a project, discussing the latest in web development, or just sharing a good book recommendation, feel free to reach out! 
+I'm always eager to connect with like-minded individuals and explore new opportunities. Whether you're interested in collaborating on a project, discussing the latest in web development, or just sharing a good book recommendation, feel free to reach out!
