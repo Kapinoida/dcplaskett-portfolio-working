@@ -4,7 +4,6 @@ Hi there! I'm Dave, a passionate web developer, programming guru, and former chi
 
 ## My Journey.
 
-s
 My career has been a thrilling adventure through the world of code and problem-solving. Things started small with humble beginnings going to school full-time while working in construction. Once I had the opportunity to work in education, I really found my stride using technology to enhance our community.
 
 From designing a fun and usable landing page for thousands of students to orchestrating the main website for our entire district, I thrive on creating innovative solutions. Once I moved into my current position, I was about to unlock many skills using data and programming languages to help our systems flow.
