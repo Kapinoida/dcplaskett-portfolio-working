@@ -1,0 +1,69 @@
+---
+title: 'Music Recommendations '
+subtitle: A Dance in Antigravity
+date: 2026-01-05
+category: Developing in Public.
+featured: true
+---
+When I started my self-hosting journey, music wasn't in my playbook of services I cared much about. Streaming services do a really great job at getting music readily available for you. But, after getting bored one day, I started fiddling with some things and found it really intriguing. The tools available are really slick and the power you can have with creating, tracking, and collecting data on what you do is seemingly limitless. I've able to use Navidrome for my self-hosted service, which can be connected and synced with a number of apps out there. On my phone, I've used Syphonium to connect via Subsonic, which has been really stellar so far. Navidrome can also connect to Last.fm and ListenBrainz to track your listening.
+
+There was one major missing piece, which was really my major hesitation in the first place: music discovery. Self-hosting your music is great, but you are basically limited to what you physically have. While I love the music I love, I also like to hear new things. Streaming services can do a really good job at pointing you to new music or otherwise other bands or albums you wouldn't ordinarily find.
+
+One interesting thing I found was something called 1001 Albums You Must Hear Before You Die. While it's not a good resource for finding newer music (the current cutoff is 2021), there is a lot of albums that I've missed throughout the years and the service at [https://1001albumsgenerator.com/](https://1001albumsgenerator.com/) has helped generate daily picks for going through that list, based on some select genres. You can see my progress at [https://1001albumsgenerator.com/dcplaskett](https://1001albumsgenerator.com/dcplaskett).
+
+Since I'm able to hook into the power of my own self-hosted instance and other API data, I thought that there can be something I can make to help recommend myself albums.
+
+## The idea
+
+Navidrome uses Subsonic REST API so we are able to authenticate to our server and hut various endpoints to get lots of data. This means we can look at my current albums that have ratings and hearts to see how I've rated things.
+
+This is all well and good, but I would also need to find other artists and albums based on what I like that is not in my library. Navidrome can automatically connect and sync what I do to Last.fm and ListenBrainz. Last.fm is a service focused on things like I like the most (top tracks, most listened to, etc.). Listenbrainz does something similar, but can also have some recommendations based on what you have listened to. We can use their APIs respectively to help us with our algorithm we will create.
+
+I'm a very vibey person, so the mood I'm in will dictate how much I'll be into something, be it movies, shows or music. So I wanted to add in a layer of vibe to the whole situation. The basic idea is that I can assign the tags we get from our APIs that are associated with various artists or albums and start to curate picks based on vibes.
+
+With some basic ideas about the what I want to do down, it was time to get to work.
+
+## The work
+
+Okay, what I mean by get to work is instructing an AI to work on it. For a while, I've been using Claude Code to help me through various coding tasks. It's really strong at finding the context and working through the problems. I know there may be a stigma behind using AI to code (vibe coding, no pun here I guess), but I have never learned more about coding then using AI to help. The idea that I can ask to help think through something specific allows me to learn so much about the problems I'm continuing to face and break through the barriers that I thought were in place. It has really changed how I view a project and what I'm able to tackle.
+
+In my title, I mentioned dancing in antigravity. Antigravity is Google's AI first  code editor. You can interact with it in a much more similar fashion as you would a chatbot like Gemini. As you talk with the chatbot, you can develop plans, approve the actions and have the agent act on those plans.
+
+One thing I've noticed so far with working with it is that I haven't hit the limit yet. With Claude Code, I feel like it's pretty easy to hit the code limit if I'm half paying attention to it, but with Antigravity, have not seen that yet.
+
+All this being said, AI is just a tool to use to help plan and develop the basic ideas to improve on. I've taken this project further down with an AI assisted tool as I've ever done. However, the plan will be to then take this foundation, take what I've learned and build it out properly.
+
+Part of all of this is a learning experience, so if I don't know the best or most secure way to do things, I can only learn and grow.
+
+The project is built on Next.js and uses Vercel Postgres as a database (Vercel is also the host). I've been using Next.js for some time now and I find that it is just the thing I can gravitate to to solve a lot of problems. Though, I've never actually used it in my professional setting, being that I'd be the only one to know how any of it would work, and if I'd ever leave, they would be lost (I try to keep things much simpler at work).
+
+This project is really built around the idea of using lots of different data and smush things together to get different outputs. So for that, we need to create an algorithm. When I first got some suggestions to come up, it was very eye-opening. It actually worked (suggesting The Smile for Radiohead, which totally makes sense).
+
+There were some tricky parts to play when it comes to matching up tags to vibes or moods. We can get some really evocative tags that can help, but we can also get very useless things, like years (1988 wasn't that sad, what it?). So, then came the idea of allowing me to tweak the tags that are associated with each vibe, which can start to move the needles around a bit to make things more accurate.
+
+Also, why not allow myself to specify certain albums that will fit into what vibe. Again, this can help move the needle around for suggestions as well as allow the user to give some input towards what they are seeing, versus just telling them they will like it.
+
+The issue came when I would always get the same albums recommended, with no deviation, so we needed to introduce some randomness to the mix. Now we get a good split of unique artist from different years that can fill certain vibes.
+
+So far, the work that has gone into the project has really given some fun results. I'm able to visualize what I've listened to, add input where needed, see what 1001 album is next and add in recommendations based on vibe to a queue. When I rank an album, it will automatically get pulled from the queue.
+
+You can snoop around the messy code here on Github: [https://github.com/Kapinoida/music-rec](https://github.com/Kapinoida/music-rec)\
+You can also see the site live and working here: [https://music-rec-seven.vercel.app/](https://music-rec-seven.vercel.app/)
+
+You should be able to see the recommendations in action, what 1001 album I'm on, my discovery queue, my top rated albums and the tracks I've listened to recently.
+
+With that, there is a lot of other work we can do. There is so much data to use and expand on, so I feel that the base level of everything feels very solid, and with a bit of elbow grease, I can start working towards polish and other ideas.
+
+## The future
+
+As far as  the future of the project goes, I'm excited to start looking into individual tracks. I've got into the habit of favoriting tracks themselves, so getting even more specific vibe choices based on those favorites might be work going down.
+
+Another thing I should start doing is also recommend albums I already have but have not rated yet. This can also help me either find some things that are lost in my library, or revisit an album I've loved before.
+
+This can also maybe dovetail into making playlists based on favorite tracks, combining with tracks that are in my library, but might be missing.
+
+I use Deemix to get tracks from Deezer, so there was the thought of being able to hook up Deemix actions to the page as well. This would be quite a shift, however, since I would need to host the app myself where Deemix is running from to have any commands, so maybe a future thing to think about. Imagine getting a recommendation in, then clicking a button to send it to your library to listen to. Seems really nice to have.
+
+Anyways, I just wanted to ramble a bit about the project. There is more to look forward to with it, as I refine, rework, and tweak what I've already got. So stay tuned for that.
+
+Cheers.
