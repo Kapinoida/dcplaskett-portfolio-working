@@ -1,0 +1,58 @@
+---
+title: The Docket
+subtitle: Not another note-taking app...
+date: 2026-02-10
+featured: true
+---
+Yeah, okay it is. But hear me out. I've tried out so many productivity apps, and I just feel like nothing can harness my brain properly. Notion, Obsidian (actually writing in this now, I'll get to that later), Todoist, TickTick, bullet journals, Joplin, ClickUp, Habitica, plus countless others that have barely make a mark on my brain and how it works.
+
+I think the main problem is I really needed to find what I needed in an app, versus finding an app that can squeeze my need into. All of the above apps are great, but fail in how I want to plan and interact.
+
+- While I can take extensive notes, I really wanted something that is simple to open and type in.
+- I want to be able to create a task for myself within the train of thought I'm in. If I have to stop what I'm doing, go to a different tab or window to make a simple task, I can and will lose the thoughts I have going.
+- I also want a way to create some simple recurring tasks.
+- Tasks need to sync to a simple calendar view or app where I can see everything in one spot.
+
+Yes, some of these apps can do that on the surface, but they all will fail to do something simply.
+
+**Notion** - A powerhouse of an app. You can really do a lot with it, which became it's downfall. I felt like I had a second job trying to build systems and workflows for some of the seemingly simple things. For example, getting recurring tasks to work is just a pain, and I know they've updated things, but I feel the whole experience has been sullied at this point. Maybe I could try it again? No, too expensive.
+
+**Obsidian** - I use this still, as it work well with NextCloud, which is my personal cloud server. The failure of Obsidian beyond being a great note-taking app is you need to start working with plugins to get extra functionality. The extra plugins and files it needs to keep track of really causes issues with syncing. Sadly, while you can do so much with Obsidian, the more devices and syncing you want to do, things start to breakdown because the focus of operations is run by the app itself, not someplace central.
+
+**Todoist and TickTick** - I've used TickTick the longest in combination with Obsidian. It is really a great tasking app, as is Todoist. But that's all they will be. Using notes to try and plan with them is just distracting.
+
+**Bullet Journals** - I really like the tactile feel, but I need to get hit in the head with tasks I need to do. I will forgot everything without reminders. While I can see the benefit of having a healthy habit of review, I just don't have the mental time to keep up with that type of system.
+
+**Habitica** - This is another fun idea that you can spend some time on and have fun leveling up. The problem comes when there is so much to do, the app become a distraction rather than productive. Gamification can be fun and incentivizing, but also a distraction if there is so much setup involved.
+
+**Others** - There are countless systems out there, and I'm sure that it will work for others.
+
+## Okay, yes, another note-taking app...
+
+So, cut to me starting to think about ways I can make an app that does what I want without much hassle. When I think through a problem, I will generally write some notes. The notes should be able to be put into action in some way. Creating a simple way to make tasks from notes or create and connect context from the pieces of text are really the founding thoughts of The Docket.
+
+Along with the ease of making my brain happy, I also want this to be self-hosted, so I can have some simple controls in how it can behave and, well, it's free.
+
+## The prototype
+
+I spent a lot of the initial time ruminating on the system I wanted. I've probably started the planning process several times, finally ready to start. Claude Code just came out, so I wanted to test out the capabilities, and I wasn't disappointed. It preformed quite remarkably, and it only failed probably because all that rumination wasn't ruminated enough. I initially was stuck in this Markdown-everything mindset. Turns out, trying to have a complex system where you can have multiple instances of tasks just wouldn't work.
+
+So, I started again, setting aside Markdown ideals and honing in on the system that I've been working with in Antigravity. The big "idea": context. I wanted to make sure that context was added automatically to pages, tasks, and anything else that can be referenced. Tagging is a great way to organize like minded thoughts together, but my brain doesn't allow for that type of work. I just note and want to do. But if I can automate it in some way, the cool linking graph visuals of Obsidian might just be a bonus to the whole system.
+
+So, after some iterations, and even getting into a v2 API to help with some of the early shortcomings, I've (or Gemini've) got a working prototype running on my home server, that I can hit from anywhere. And so far, it's nice. It's not going to change my life yet, but it will do some really great simple things I need. Here is the simple rundown:
+
+- Folders - can store notes
+- Notes - can house text, text, and subnotes. Editor has many different functions and each line acts like a block that can be converted to different types.
+- Tasks - can be assigned dates and recursion. Tasks can be synced via CalDAV (NextCloud).
+- Calendar - Can sync with a ICS calendar for read-only viewing. Can drag tasks around the calendar to easily arrange when to do what.
+- Focus - Randomly wanted to add a Pomodoro time and able to assign tasks to the session and work on them.
+
+So far, so good. I need to work on some of the small screen elements, but in general everything is quick and intuitive so far.
+
+## Next Steps
+
+While I used AI heavily in the planning, I plan to rewrite everything over again to make sure everything is nice and clean and makes sense. While this project is a useful tool to me, it was also an opportunity to learn more about complex systems with application development. I'm a big believer that I've learn much more by doing (and failing a bunch), so this was really great. Now I can really take all that I've learned and convert that into a much better product.
+
+I'm not sure how "marketable" this is, as I'm never in a marketable mindset. Maybe it might be appealing to some people, but I wouldn't know where to even start with that. I guess my real end goal is to make something that can be fairly easy to install via Docker and hope that it's useful to someone out there.
+
+If you are interested to see the latest, you can see it [on Github](https://github.com/Kapinoida/the-docket). I'm not going to actively work on it for a while, as I want to see what I can do with the prototype, only squashing some bugs and adding some little features here or there.
