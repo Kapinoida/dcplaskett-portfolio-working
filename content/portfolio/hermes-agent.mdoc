@@ -1,0 +1,46 @@
+---
+title: Hermes Agent.
+date: 2025-08-01
+description: AI-powered automation platform with multi-platform messaging and tool orchestration.
+skills:
+  - AI/LLM.
+  - Python.
+  - Docker.
+  - API Design.
+  - Matrix.
+  - Discord.
+  - Telegram.
+  - Self-Hosting.
+featured: true
+github: 
+live: 
+thumbnail: 
+---
+
+# Hermes Agent.
+
+## What Is It?
+
+Hermes is an open-source AI agent framework by Nous Research. It's a persistent, tool-equipped assistant that lives on my home server, connected to Discord, Telegram, and Matrix simultaneously. Think of it as a programmable AI that can read files, execute code, search the web, control smart home devices, manage Docker containers, and more — all through natural conversation across any messaging platform.
+
+I didn't build Hermes from scratch, but I've done extensive work configuring, extending, and integrating it into a genuine daily-use automation platform.
+
+## My Work.
+
+**Multi-Platform Architecture:** Configured Hermes to operate across Discord, Telegram, and Matrix simultaneously — each with platform-specific routing, channel allowlists, and delivery rules. Built a self-hosted Matrix homeserver (Synapse) specifically to serve as the primary messaging backbone.
+
+**Custom Skill System:** Authored dozens of custom skills — reusable workflows that give Hermes specialized knowledge. These range from Docker container management and GitHub PR workflows to music library management with Beets, sports recording pipelines, and automated job application tracking.
+
+**Cron Automation:** Built a scheduled task system that runs autonomous agents on timers. Daily Alpaca trading watchdogs, Minecraft server health checks, storage cleanup routines, and morning news digests — all running without human intervention.
+
+**Home Lab Integration:** Connected Hermes to my entire self-hosted stack: Docker containers, Nginx Proxy Manager, Uptime Kuma monitoring, Plex media server, Immich photo backup, qBittorrent with VPN enforcement, and Philips Hue lighting — all controllable through natural language.
+
+**The Docket Integration:** Built custom tooling that lets Hermes interact with The Docket (my task management app) through its API, bridging my AI assistant with my productivity system.
+
+## Technical Challenges.
+
+Running an always-on AI agent means solving real infrastructure problems: Docker container lifecycle management, credential rotation, Matrix federation debugging, rate-limit handling across four different APIs, and keeping the whole thing running reliably 24/7 on a Mac Mini.
+
+## Why It Matters.
+
+Hermes represents the kind of work I'm most passionate about: taking powerful tools, understanding them deeply, and bending them to solve real problems. It's part systems administration, part software engineering, part AI/LLM expertise, and part creative problem-solving — exactly the mix I want to bring to my next role.

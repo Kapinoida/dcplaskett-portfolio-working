@@ -1,0 +1,53 @@
+---
+title: The Docket.
+date: 2025-05-15
+description: A self-hosted task management app built around how I actually think.
+skills:
+  - Next.js.
+  - TypeScript.
+  - React.
+  - PostgreSQL.
+  - Docker.
+  - CalDAV.
+  - Tailwind CSS.
+featured: true
+github: https://github.com/Kapinoida/the-docket
+live: 
+thumbnail: 
+---
+
+# The Docket.
+
+## Why Another Task App?
+
+I've tried them all. Notion, Obsidian, Todoist, TickTick, bullet journals, Joplin, ClickUp, Habitica — none of them fit how my brain works. The core problem: every app forced me to adapt my thinking to its workflow instead of the other way around.
+
+I needed something that:
+- Opens instantly and lets me type without friction
+- Creates tasks inline without breaking my train of thought
+- Handles simple recurring tasks without complexity
+- Syncs to a calendar view where I can see everything at once
+
+So I built it.
+
+## Architecture.
+
+The Docket is a Next.js app running in Docker on my home server. It uses PostgreSQL for persistence and CalDAV for calendar synchronization — meaning tasks appear natively in Fantastical, Apple Calendar, or any CalDAV-compatible client.
+
+The stack is deliberately lean: no ORMs, no state management libraries, no unnecessary abstractions. Just Next.js API routes talking directly to PostgreSQL, with a clean, keyboard-driven UI.
+
+## The Build.
+
+Building a task manager that actually felt good to use meant solving a few hard problems:
+
+**Inline task creation** — the ability to type `/task` anywhere in a note and have it create a task without leaving the keyboard. This required custom text parsing and a floating command palette.
+
+**Recurring tasks** — not just "every Tuesday," but things like "every 2 weeks on Thursday, skip if it falls on a holiday." The recurrence engine handles these edge cases that most apps fumble.
+
+**CalDAV sync** — getting two-way sync working between The Docket and external calendars was the hardest part. Race conditions, conflict resolution, and timezone handling all had to be solved from scratch.
+
+**Mobile-first PWA** — the app works as a Progressive Web App, installable on phones with offline support. The UI had to feel native despite being web-based.
+
+## What I Learned.
+
+This project taught me more about real-world software engineering than any tutorial. Database migrations, Docker networking, OAuth flows, PWA service workers, and the thousand papercuts of building something people actually use daily. I use The Docket every single day — that's both the best test suite and the harshest critic a project can have.
